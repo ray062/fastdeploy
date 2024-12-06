@@ -1,0 +1,24 @@
+name: "production"
+credentials:
+  remote_host: "production.server.com"
+  remote_user: "prod_user"
+  remote_port: 22
+  auth_method: "key"  # can be "password" or "key"
+  # Use either private_key or password based on auth_method
+  private_key:
+    path: "/path/to/private/key"
+    passphrase: "your_passphrase"  # optional, can be null if no passphrase
+  # password: "prod_password"  # uncomment if using password auth
+
+deployment:
+  watch_path: "/path/to/watch"
+  auto_deploy: false
+  remote_path: "/path/on/production/server"
+
+commands:
+  pre_deploy:
+    - "echo 'Starting production deployment...'"
+    - "systemctl stop myservice"
+  post_deploy:
+    - "systemctl start myservice"
+    - "echo 'Production deployment completed'"

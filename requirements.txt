@@ -1,0 +1,4 @@
+watchdog
+paramiko
+python-dotenv
+PyYAML

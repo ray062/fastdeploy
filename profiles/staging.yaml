@@ -1,0 +1,20 @@
+name: "staging"
+credentials:
+  remote_host: "staging.server.com"
+  remote_user: "staging_user"
+  remote_port: 22
+  auth_method: "key"
+  private_key:
+    path: "~/.ssh/staging_key"
+    passphrase: "my_secure_passphrase"  # optional
+
+deployment:
+  watch_path: "/path/to/watch"
+  auto_deploy: true
+  remote_path: "/path/on/staging/server"
+
+commands:
+  pre_deploy:
+    - "echo 'Starting staging deployment...'"
+  post_deploy:
+    - "echo 'Staging deployment completed'"
